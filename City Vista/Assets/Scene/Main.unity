@@ -596,7 +596,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 55K
+  m_Text: '0  '
 --- !u!222 &373783743
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -940,6 +940,8 @@ GameObject:
   m_Component:
   - component: {fileID: 690861670}
   - component: {fileID: 690861671}
+  - component: {fileID: 690861672}
+  - component: {fileID: 690861673}
   m_Layer: 0
   m_Name: SlotController
   m_TagString: Untagged
@@ -981,11 +983,11 @@ MonoBehaviour:
   buildSprite: {fileID: 1780981249}
   hudPosition: {fileID: 2091026390}
   panelPurchase: {fileID: 879188789}
-  icoBuy: {fileID: 1481761609}
+  iconCoinPurchase: {fileID: 2054090701}
   pricePurchaseTxt: {fileID: 2084268396}
   panelProduction: {fileID: 2110240751}
   icoProd: {fileID: 1796038580}
-  productionnBar: {fileID: 1437279597}
+  loadBar: {fileID: 1437279597}
   productionTxt: {fileID: 373783742}
   panelUpgrade: {fileID: 1649885250}
   bgUpgrade: {fileID: 1478319166}
@@ -994,7 +996,55 @@ MonoBehaviour:
   icoUp: {fileID: 2054090701}
   priceUpgradeTxt: {fileID: 1765703275}
   slotLevelTxt: {fileID: 1008779793}
-  Slot: {fileID: 11400000, guid: 1a7540ad968e2df4d906218acfe0f726, type: 2}
+  Slot: {fileID: 11400000, guid: 6dcdebdec3b29a34e9a53fcf479503c7, type: 2}
+--- !u!60 &690861672
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690861669}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.006925933, y: 0.3304894}
+      - {x: -1.2788858, y: -0.32124647}
+      - {x: -0.0013831556, y: -0.9727199}
+      - {x: 1.270777, y: -0.32118875}
+--- !u!95 &690861673
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690861669}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 950e4af5b11b9cb4b85e4c2e21a2e440, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &792624955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,6 +1304,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bacab0ad9eee714438013dbb0fa20b63, type: 3}
   - {fileID: 21300000, guid: ddae3c762109d854385b4c62678edaac, type: 3}
   - {fileID: 21300000, guid: dbcf609d083a4774684d01fa43ce134f, type: 3}
+  colorText:
+  - {r: 1, g: 0, b: 0.244699, a: 1}
+  - {r: 1, g: 0.9618751, b: 0, a: 1}
   panelFume: {fileID: 488658614}
   coinTxt: {fileID: 1164847971}
   gemsTxt: {fileID: 1854451231}
@@ -1264,15 +1317,18 @@ MonoBehaviour:
   questDesctiption: []
   btnUpgradeMode: {fileID: 138028448}
   btnCollectionMode: {fileID: 946435608}
-  Cards:
-  - {fileID: 11400000, guid: 1fe111358f9f06149b0a9e717cb50bc9, type: 2}
-  Slots:
-  - {fileID: 11400000, guid: 1a7540ad968e2df4d906218acfe0f726, type: 2}
+  cards:
+  - {fileID: 11400000, guid: ec3cd5ac67022104d909675adb505fe1, type: 2}
+  slots:
+  - {fileID: 11400000, guid: 6dcdebdec3b29a34e9a53fcf479503c7, type: 2}
+  coinPrefab: {fileID: 4685269151462592991, guid: 98027980a76cf554eb8800672b10ca45,
+    type: 3}
+  textPrefab: {fileID: 0}
   currentState: 0
-  multBonus: 1
-  multBonusTemp: 1
-  redBonus: 1
-  redBonusTempo: 1
+  multiplierBonus: 1
+  multiplierBonusTemp: 1
+  reductionBonus: 1
+  reductionBonusTemp: 1
   _SlotController: []
 --- !u!4 &989987946
 Transform:
@@ -1945,13 +2001,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437279595}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.006623295, y: -0, z: -0, w: 0.99997807}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.97064, y: 0.97064, z: 0.97064}
   m_Children: []
   m_Father: {fileID: 2110240752}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.75900006, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -113.8}
@@ -3242,7 +3298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2110240752
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Dynamic;
-using UnityEditor.Build;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public enum GameState{
     GAMEPLAY, COLLECTION, UPGRADE, CUT
 }
 
-public enum rarityCard { 
+public enum rarity { 
     COMUM, RARA, EPICA, LENDARIA
 }
 
@@ -17,11 +13,12 @@ public enum rarityCard {
 public class GameController : MonoBehaviour
 {
     public bool isReset;
-
+    
     [Header("Gerenciamento Sprites Hud")]
     public Sprite[] icoCoin;  // 0 Inativa / 1 Ativa
     public Sprite[] slotBg;  // 0 Inativa / 1 Ativa
     public Sprite[] bgUpgradeHud;  // 0 Inativa / 1 Ativa / 2 Maximizado
+    public Color[] colorText; // 0 Inativa / 1 Ativa    
 
 
     [Header("Hud Gameplay")]
@@ -40,8 +37,12 @@ public class GameController : MonoBehaviour
     public GameObject btnCollectionMode;
 
     [Header("Scriptables")]
-    public Card[] Cards;
-    public Slot[] Slots;
+    public Card[] cards;
+    public slot[] slots;
+
+    [Header("Prefabs")]
+    public GameObject coinPrefab;
+    public GameObject textPrefab;
 
     [Header("Variáveis de Gameplay")]
     public GameState currentState;
@@ -49,34 +50,35 @@ public class GameController : MonoBehaviour
     private int gems, gemAccumulated;
 
     [Header("Bonus de Gameplay")]
-    public int multBonus;
-    public int multBonusTemp;
-    public float redBonus, redBonusTemp;
+    public int multiplierBonus;
+    public int multiplierBonusTemp;
+    public float reductionBonus;
+    public float reductionBonusTemp;
 
     [SerializeField]
     private SlotController[] _SlotController;
-
-    
-
 
     // Start is called before the first frame update
     void Start()
     {
         if (isReset == true) {
-            Rst();
+            resete();
         }
 
         panelFume.SetActive(false);
+        panelQuest.SetActive(false);
 
         if (isQuest) {
             panelQuest.SetActive(true);
 
-        }
+        } 
 
         _SlotController = FindObjectsOfType(typeof(SlotController)) as SlotController[];
 
         foreach (SlotController s in _SlotController){
             s._GameController = this;
+            s.Slot._GameController = this;
+            
             s.StartSlot();
 
 
@@ -85,12 +87,11 @@ public class GameController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
-
+    
     public void getGold(double qtd) {
         gold += qtd;
 
@@ -117,16 +118,30 @@ public class GameController : MonoBehaviour
         return valor.ToString();    
     }
 
-    private void Rst() { 
-        foreach(Card c in Cards) {
-            c.Reset();
-
+    private void resete() {
+        foreach(Card c in cards) {
+            c.reset();
         }
 
-        foreach (Slot s in Slots) {
-            s.Reset();
+        foreach (slot s in slots) {
+            s.reset();
 
         }
+    }
+
+    public bool checkGold(double qtd) {
+
+        bool check = false;
+
+        if ( gold >= qtd) {
+                check = true;
+        }
+
+        return check;
+    }
+
+    public void buySlot(slot s) { 
+        
     }
 }
 

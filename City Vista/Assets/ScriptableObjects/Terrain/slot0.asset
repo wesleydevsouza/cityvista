@@ -9,22 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c695b2ef4afff5b49975254ad91365c4, type: 3}
+  m_Script: {fileID: 0}
   m_Name: slot0
-  m_EditorClassIdentifier: 
-  _GameController: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::slot
+  gameController: {fileID: 0}
   idSlot: 0
-  slotCard: {fileID: 11400000, guid: 1fe111358f9f06149b0a9e717cb50bc9, type: 2}
-  initialCard: {fileID: 11400000, guid: 1fe111358f9f06149b0a9e717cb50bc9, type: 2}
+  slotCard: {fileID: 11400000, guid: ec3cd5ac67022104d909675adb505fe1, type: 2}
+  initialcard: {fileID: 11400000, guid: ec3cd5ac67022104d909675adb505fe1, type: 2}
   isPurchased: 1
-  isMax: 0
+  isMas: 0
   isAutoProduction: 0
   slotPrice: 0
-  upgradePrice: 0
-  slotProduction: 0
-  slotTimeProduction: 0
   slotLevel: 1
   upgrades: 0
   totalUpgrades: 0
+  upgradePrice: 0
+  slotProdduction: 0
+  slotTimeProduction: 0
   slotProductionMultiplier: 1
   slotProductionReduction: 1

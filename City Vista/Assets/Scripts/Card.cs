@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Collection/Card")]
 
@@ -9,37 +8,35 @@ public class Card : ScriptableObject
     public string cardName;
     public Sprite spriteCard;
     public Sprite shadowCard;
-    public rarityCard rarityCard;
+    public rarity rarityCard;
 
-    public bool isAvaliable;
     public double production;
-    public float timeProduction;
     public int levelCard = 1;
+    public bool isAvaliable;
+    public float timeProduction;
 
-    public int productionMult = 1;
-    public float productionRed = 1;
+    public int productionMultiplier = 1;
+    public float productionReduction = 1;
 
     public bool isMax;
 
-    public void Reset()
-    {
-
-        if (idCard == 0)
-        {
+    public void reset() {
+        if (idCard == 0 ) {
             isAvaliable = true;
-
-        }
-        else
-        {
+        }else {
             isAvaliable = false;
-
         }
 
+        productionMultiplier = 1;
+        productionReduction = 1;
         levelCard = 1;
-        productionMult = 1;
-        productionRed = 1;
         isMax = false;
+
     }
+
+
+    
+
 
 
 }
