@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class SlotController : MonoBehaviour {
 
+    [HideInInspector]
     public GameController _GameController;
 
     private Animator animator;
@@ -146,7 +147,9 @@ public class SlotController : MonoBehaviour {
         GameObject tempCoin = Instantiate(_GameController.coinPrefab, hudPosition.position, hudPosition.localRotation);
         tempCoin.GetComponent<CoinAnimation>().posY = hudPosition.position.y;
         tempCoin.GetComponent<Rigidbody2D>().AddForce(new Vector2(35, 400));
-        
+        animator.SetTrigger("collect");
+
+      
         
 
     }
